@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Brandon Trejo Hernández — Desarrollador Web Frontend & Estudiante de Ingeniería en Sistemas Computacionales (ESCOM - IPN)." />
+    <title>Brandon Trejo — Frontend Developer</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Syne (display) + Inter (body) + JetBrains Mono (labels) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Set theme before paint -->
+    <script>
+        (function () {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'light') document.documentElement.classList.remove('dark');
+            else document.documentElement.classList.add('dark');
+        })();
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Syne', 'ui-sans-serif', 'system-ui'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+                    },
+                    colors: {
+                        ink: '#0b0b0c',
+                        paper: '#f3f1ea',
+                        red: {
+                            DEFAULT: '#e60012',
+                            soft: '#ff3b3b',
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .font-display { font-family: 'Syne', sans-serif; letter-spacing: -0.02em; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Outline (stroke) text */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #0b0b0c;
+        }
+        .dark .text-outline { -webkit-text-stroke: 2px #f3f1ea; }
+        @media (min-width: 768px) {
+            .text-outline { -webkit-text-stroke-width: 3px; }
+        }
+
+        /* Dotted grid + soft red glow over the hero (background gradient shows through) */
+        .grid-bg {
+            background-image:
+                radial-gradient(rgba(0,0,0,0.10) 1px, transparent 1px),
+                radial-gradient(160% 120% at 50% -20%, rgba(230,0,18,0.13), transparent 80%);
+            background-size: 26px 26px, 100% 100%;
+            background-repeat: repeat, no-repeat;
+        }
+        .dark .grid-bg {
+            background-image:
+                radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(160% 120% at 50% -20%, rgba(230,0,18,0.22), transparent 80%);
+            background-size: 26px 26px, 100% 100%;
+            background-repeat: repeat, no-repeat;
+        }
+
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+
+        /* Scroll progress bar */
+        #progress { transform-origin: 0 50%; transform: scaleX(0); }
+
+        /* Project row hover */
+        .work-row { transition: color .3s ease, padding .4s cubic-bezier(.16,1,.3,1); }
+        .work-row .arrow { transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .3s ease; transform: translateX(-12px); opacity: 0; }
+        .work-row:hover { padding-left: 1.25rem; }
+        .work-row:hover .arrow { transform: translateX(0); opacity: 1; }
+        .work-row:hover .work-title { color: #e60012; }
+
+        /* Floating preview for projects */
+        #preview {
+            position: fixed; top: 0; left: 0; z-index: 60; pointer-events: none;
+            width: 280px; opacity: 0; transform: translate(-50%, -50%) scale(.9);
+            transition: opacity .25s ease, transform .25s ease;
+        }
+        #preview.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        /* Fullscreen menu */
+        #overlay { transition: clip-path .6s cubic-bezier(.77,0,.18,1); clip-path: inset(0 0 100% 0); }
+        #overlay.open { clip-path: inset(0 0 0 0); }
+        .overlay-link { transition: transform .3s ease, color .3s ease; }
+        .overlay-link:hover { transform: translateX(14px); color: #e60012; }
+
+        ::selection { background: #e60012; color: #fff; }
+        ::-webkit-scrollbar { width: 9px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #9a9a9a; }
+        .dark ::-webkit-scrollbar-thumb { background: #3a3a3a; }
+        ::-webkit-scrollbar-thumb:hover { background: #e60012; }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-paper to-[#e7e4d9] text-ink dark:from-ink dark:to-[#16161c] dark:text-paper transition-colors duration-300 overflow-x-hidden">
+
+    <!-- Scroll progress -->
+    <div class="fixed top-0 inset-x-0 h-[3px] z-[70] bg-transparent">
+        <div id="progress" class="h-full bg-red w-full"></div>
+    </div>
+
+    <!-- ============== TOP BAR ============== -->
+    <header class="fixed top-0 inset-x-0 z-50">
+        <div class="flex items-center justify-between px-5 sm:px-8 py-4 mix-blend-difference">
+            <a href="#top" class="font-display text-xl font-extrabold tracking-tight text-white">
+                BT<span class="text-red">®</span>
+            </a>
+            <div class="flex items-center gap-3 text-white">
+                <button id="theme-toggle" aria-label="Cambiar tema" class="grid place-items-center w-10 h-10 rounded-full border border-white/40 hover:border-red hover:text-red transition-colors">
+                    <i id="icon-sun" class="fa-solid fa-sun hidden dark:block"></i>
+                    <i id="icon-moon" class="fa-solid fa-moon block dark:hidden"></i>
+                </button>
+                <button id="menu-open" class="flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest border border-white/40 rounded-full pl-4 pr-3 py-2 hover:border-red hover:text-red transition-colors">
+                    Menú
+                    <span class="flex flex-col gap-[3px]">
+                        <span class="block w-4 h-[2px] bg-current"></span>
+                        <span class="block w-4 h-[2px] bg-current"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============== FULLSCREEN MENU ============== -->
+    <div id="overlay" class="fixed inset-0 z-[60] bg-ink text-paper flex flex-col">
+        <div class="flex items-center justify-between px-5 sm:px-8 py-4">
+            <span class="font-display text-xl font-extrabold text-paper">BT<span class="text-red">®</span></span>
+            <button id="menu-close" aria-label="Cerrar menú" class="grid place-items-center w-11 h-11 rounded-full border border-white/30 hover:border-red hover:text-red transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+        <nav class="flex-1 flex flex-col justify-center px-6 sm:px-12 gap-2 sm:gap-3">
+            <a href="#top"        class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">01</span>Inicio</a>
+            <a href="#about"      class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">02</span>Sobre mí</a>
+            <a href="#work"       class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">03</span>Trayectoria</a>
+            <a href="#projects"   class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">04</span>Proyectos</a>
+            <a href="#cv"         class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">05</span>Currículum</a>
+            <a href="#contact"    class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">06</span>Contacto</a>
+        </nav>
+        <div class="px-6 sm:px-12 py-8 flex flex-wrap gap-6 font-mono text-xs uppercase tracking-widest text-paper/60">
+            <a href="https://github.com/Brandonttt" target="_blank" rel="noopener" class="hover:text-red transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/trejo-hern%C3%A1ndez-brandon-a53aba316/" target="_blank" rel="noopener" class="hover:text-red transition-colors">LinkedIn</a>
+            <a href="https://wa.me/525578482150" target="_blank" rel="noopener" class="hover:text-red transition-colors">WhatsApp</a>
+            <a href="mailto:brandont81470@gmail.com" class="hover:text-red transition-colors">Email</a>
+        </div>
+    </div>
+
+    <!-- ============== HERO ============== -->
+    <section id="top" class="grid-bg min-h-screen flex flex-col justify-center pt-24 pb-16 relative">
+        <div class="px-5 sm:px-8 w-full">
+            <!-- meta row -->
+            <div class="flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] sm:text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-paper/60 border-b border-ink/15 dark:border-paper/15 pb-5">
+                <span class="inline-flex items-center gap-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    Disponible para proyectos
+                </span>
+                <span class="hidden sm:block">Naucalpan de Juárez · MX</span>
+                <span>ESCOM — IPN</span>
+            </div>
+
+            <!-- giant name -->
+            <div class="py-6 sm:py-10">
+                <h1 class="font-display font-extrabold leading-[0.9] tracking-tight text-[clamp(1.9rem,9vw,8rem)] whitespace-nowrap">
+                    <span class="block">BRANDON</span>
+                    <span class="block text-outline">TREJO</span>
+                </h1>
+            </div>
+
+            <!-- tagline + cta -->
+            <div class="grid lg:grid-cols-12 gap-6 items-end border-t border-ink/15 dark:border-paper/15 pt-6 pb-10">
+                <p class="lg:col-span-7 text-lg sm:text-xl text-ink/70 dark:text-paper/70 max-w-2xl leading-relaxed">
+                    Desarrollador Web <span class="text-red font-medium">Frontend</span> y estudiante de Ingeniería
+                    en Sistemas Computacionales. Construyo interfaces limpias, resuelvo problemas y aprendo
+                    algo nuevo en cada reto.
+                </p>
+                <div class="lg:col-span-5 flex flex-wrap gap-3 lg:justify-end">
+                    <a href="#projects" class="group inline-flex items-center gap-3 bg-ink text-paper dark:bg-paper dark:text-ink px-6 py-4 font-mono text-xs uppercase tracking-widest hover:bg-red hover:text-white dark:hover:bg-red dark:hover:text-white transition-colors">
+                        Ver proyectos
+                        <i class="fa-solid fa-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
+                    </a>
+                    <a href="#cv" class="inline-flex items-center gap-3 border border-ink/30 dark:border-paper/30 px-6 py-4 font-mono text-xs uppercase tracking-widest hover:border-red hover:text-red transition-colors">
+                        Ver CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== ABOUT ============== -->
+    <section id="about" class="px-5 sm:px-8 py-24 sm:py-32">
+        <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-12">
+            <span class="font-mono text-red text-sm">(02)</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Sobre mí</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+            <div class="lg:col-span-7 reveal">
+                <p class="font-display text-2xl sm:text-4xl font-bold leading-tight">
+                    Persona <span class="text-red">organizada</span> y <span class="text-red">responsable</span>,
+                    con compromiso y entusiasmo por resolver problemas.
+                </p>
+                <p class="mt-8 text-ink/70 dark:text-paper/70 leading-relaxed max-w-2xl">
+                    Estudio Ingeniería en Sistemas Computacionales en la ESCOM del IPN. Me enfoco en el
+                    desarrollo web frontend: construir interfaces claras, mantenibles y centradas en el usuario.
+                    Siempre estoy dispuesto a aprender cosas nuevas y enfrentar los retos que se presenten.
+                </p>
+                <p class="mt-4 text-ink/70 dark:text-paper/70 leading-relaxed max-w-2xl">
+                    Disfruto colaborar en equipo, analizar bien cada tarea antes de actuar y aportar soluciones
+                    que mejoren la experiencia de las personas.
+                </p>
+
+                <div class="mt-10 flex flex-wrap gap-2">
+                    <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Responsabilidad</span>
+                    <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Trabajo en equipo</span>
+                    <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Adaptabilidad</span>
+                    <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Proactividad</span>
+                    <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Perseverancia</span>
+                    <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Paciencia</span>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 reveal">
+                <ul class="divide-y divide-ink/15 dark:divide-paper/15 border-y border-ink/15 dark:border-paper/15">
+                    <li class="flex items-center justify-between py-4">
+                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Rol</span>
+                        <span class="font-display font-bold text-lg">Frontend Dev</span>
+                    </li>
+                    <li class="flex items-center justify-between py-4">
+                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Escuela</span>
+                        <span class="font-display font-bold text-lg">ESCOM — IPN</span>
+                    </li>
+                    <li class="flex items-center justify-between py-4">
+                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Ubicación</span>
+                        <span class="font-display font-bold text-lg">Naucalpan, MX</span>
+                    </li>
+                    <li class="flex items-center justify-between py-4">
+                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Idiomas</span>
+                        <span class="font-display font-bold text-lg">ES · EN</span>
+                    </li>
+                </ul>
+
+                <!-- skills categories -->
+                <div class="mt-8 space-y-5">
+                    <div>
+                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-2">/ Lenguajes</p>
+                        <p class="text-ink/80 dark:text-paper/80">Java · Python · TypeScript · JavaScript</p>
+                    </div>
+                    <div>
+                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-2">/ Web</p>
+                        <p class="text-ink/80 dark:text-paper/80">HTML · CSS · SCSS · Angular</p>
+                    </div>
+                    <div>
+                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-2">/ Herramientas</p>
+                        <p class="text-ink/80 dark:text-paper/80">Git · Docker · Postman · Charles Proxy · Bitbucket · Jira · Confluence · SCRUM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== WORK / TIMELINE ============== -->
+    <section id="work" class="px-5 sm:px-8 py-24 sm:py-32 bg-ink text-paper dark:bg-paper dark:text-ink transition-colors duration-300">
+        <div class="reveal flex items-baseline gap-4 border-b border-paper/20 dark:border-ink/20 pb-5 mb-12">
+            <span class="font-mono text-red text-sm">(03)</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Trayectoria</h2>
+        </div>
+
+        <!-- Experience -->
+        <div class="reveal grid lg:grid-cols-12 gap-6 py-8 border-b border-paper/15 dark:border-ink/15 group">
+            <div class="lg:col-span-3">
+                <p class="font-mono text-xs uppercase tracking-widest text-red">Experiencia</p>
+                <p class="mt-2 font-mono text-sm text-paper/60 dark:text-ink/60">Sep 2025 — Mar 2026</p>
+            </div>
+            <div class="lg:col-span-9">
+                <div class="flex flex-wrap items-center gap-3">
+                    <h3 class="font-display text-2xl sm:text-3xl font-bold">Claro Drive</h3>
+                    <span class="font-mono text-xs border border-red text-red px-2 py-1">Becario TI Frontend</span>
+                </div>
+                <p class="mt-4 text-paper/70 dark:text-ink/70 leading-relaxed max-w-3xl">
+                    Solucioné bugs e implementé características en el portal y en distintas iniciativas, trabajando con
+                    <span class="text-paper dark:text-ink font-medium">trazas, Charles Proxy, VS Code, Docker y WSL</span>.
+                    Hacía un análisis previo de los tickets para tener mejor contexto, mejorando la experiencia del
+                    usuario y optimizando procesos internos. En equipo daba seguimiento con
+                    <span class="text-paper dark:text-ink font-medium">Jira</span> y colaboraba con
+                    <span class="text-paper dark:text-ink font-medium">Bitbucket y Confluence</span>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Education 1 -->
+        <div class="reveal grid lg:grid-cols-12 gap-6 py-8 border-b border-paper/15 dark:border-ink/15">
+            <div class="lg:col-span-3">
+                <p class="font-mono text-xs uppercase tracking-widest text-red">Educación</p>
+                <p class="mt-2 font-mono text-sm text-paper/60 dark:text-ink/60">Ago 2022 — Presente</p>
+            </div>
+            <div class="lg:col-span-9">
+                <h3 class="font-display text-2xl sm:text-3xl font-bold">IPN — ESCOM</h3>
+                <p class="mt-3 text-paper/70 dark:text-ink/70">Ingeniería en Sistemas Computacionales</p>
+            </div>
+        </div>
+
+        <!-- Education 2 -->
+        <div class="reveal grid lg:grid-cols-12 gap-6 py-8">
+            <div class="lg:col-span-3">
+                <p class="font-mono text-xs uppercase tracking-widest text-red">Educación</p>
+                <p class="mt-2 font-mono text-sm text-paper/60 dark:text-ink/60">Ago 2019 — Jul 2022</p>
+            </div>
+            <div class="lg:col-span-9">
+                <h3 class="font-display text-2xl sm:text-3xl font-bold">IPN — CECyT 2 "Miguel Bernard"</h3>
+                <p class="mt-3 text-paper/70 dark:text-ink/70">Técnico en Dibujo Asistido por Computadora</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== PROJECTS ============== -->
+    <section id="projects" class="px-5 sm:px-8 py-24 sm:py-32">
+        <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-4">
+            <span class="font-mono text-red text-sm">(04)</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Proyectos</h2>
+        </div>
+
+        <div class="border-b border-ink/15 dark:border-paper/15">
+            <!-- Row 1 -->
+            <a href="https://github.com/Brandonttt/SistemaMedico.git" target="_blank" rel="noopener"
+               class="work-row reveal flex items-center justify-between gap-6 py-8 sm:py-10 border-t border-ink/15 dark:border-paper/15 cursor-pointer"
+               data-icon="fa-stethoscope" data-stack="Spring · Java · JavaScript · Docker · Postman">
+                <div class="flex items-baseline gap-4 sm:gap-8 min-w-0">
+                    <span class="font-mono text-sm text-ink/40 dark:text-paper/40">01</span>
+                    <h3 class="work-title font-display text-3xl sm:text-6xl font-extrabold truncate">Sistema Médico</h3>
+                </div>
+                <div class="flex items-center gap-6 shrink-0">
+                    <p class="hidden md:block font-mono text-xs text-ink/50 dark:text-paper/50 max-w-[16rem] text-right">CRUD + Spring Security para confidencialidad de médicos y pacientes</p>
+                    <i class="arrow fa-solid fa-arrow-right text-2xl text-red"></i>
+                </div>
+            </a>
+
+            <!-- Row 2 -->
+            <a href="https://github.com/Brandonttt/RecomendacionDeLibros.git" target="_blank" rel="noopener"
+               class="work-row reveal flex items-center justify-between gap-6 py-8 sm:py-10 border-t border-ink/15 dark:border-paper/15 cursor-pointer"
+               data-icon="fa-book-open" data-stack="Spring · Java · JavaScript · Docker · Postman">
+                <div class="flex items-baseline gap-4 sm:gap-8 min-w-0">
+                    <span class="font-mono text-sm text-ink/40 dark:text-paper/40">02</span>
+                    <h3 class="work-title font-display text-3xl sm:text-6xl font-extrabold truncate">Recomendación</h3>
+                </div>
+                <div class="flex items-center gap-6 shrink-0">
+                    <p class="hidden md:block font-mono text-xs text-ink/50 dark:text-paper/50 max-w-[16rem] text-right">Consume API de libros y películas con consumo optimizado y favoritos</p>
+                    <i class="arrow fa-solid fa-arrow-right text-2xl text-red"></i>
+                </div>
+            </a>
+        </div>
+
+        <p class="reveal mt-8 font-mono text-xs text-ink/50 dark:text-paper/50">
+            <i class="fa-brands fa-github text-red"></i> Más en
+            <a href="https://github.com/Brandonttt" target="_blank" rel="noopener" class="text-red hover:underline">github.com/Brandonttt</a>
+        </p>
+    </section>
+
+    <!-- ============== CV ============== -->
+    <section id="cv" class="px-5 sm:px-8 py-24 sm:py-32 border-t border-ink/15 dark:border-paper/15">
+        <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-12">
+            <span class="font-mono text-red text-sm">(05)</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Currículum</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div class="lg:col-span-6 reveal">
+                <p class="font-display text-3xl sm:text-5xl font-extrabold leading-tight">
+                    Todo mi <span class="text-red">recorrido</span> en una página.
+                </p>
+                <p class="mt-6 text-ink/70 dark:text-paper/70 leading-relaxed max-w-xl">
+                    Formación, experiencia profesional, proyectos y habilidades técnicas. Consúltalo aquí mismo
+                    o descárgalo en PDF.
+                </p>
+                <div class="mt-10 flex flex-wrap gap-3">
+                    <a href="assets/Brandon_Trejo_CV.pdf" download class="group inline-flex items-center gap-3 bg-red text-white px-7 py-4 font-mono text-xs uppercase tracking-widest hover:bg-red-soft transition-colors">
+                        Descargar CV <i class="fa-solid fa-download group-hover:translate-y-0.5 transition-transform"></i>
+                    </a>
+                    <a href="assets/Brandon_Trejo_CV.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-3 border border-ink/30 dark:border-paper/30 px-7 py-4 font-mono text-xs uppercase tracking-widest hover:border-red hover:text-red transition-colors">
+                        Abrir en pestaña <i class="fa-solid fa-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 reveal">
+                <div class="border border-ink/20 dark:border-paper/20 p-3 bg-white/40 dark:bg-white/[0.03]">
+                    <div class="flex items-center gap-2 px-1 pb-3">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-ink/30 dark:bg-paper/30"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-ink/30 dark:bg-paper/30"></span>
+                        <span class="ml-2 font-mono text-[11px] text-ink/50 dark:text-paper/50">Brandon_Trejo_CV.pdf</span>
+                    </div>
+                    <div class="aspect-[1/1.3] bg-paper dark:bg-ink/60 overflow-hidden">
+                        <object data="assets/Brandon_Trejo_CV.pdf" type="application/pdf" class="w-full h-full">
+                            <div class="w-full h-full flex flex-col items-center justify-center text-center p-8">
+                                <i class="fa-solid fa-file-pdf text-5xl text-red"></i>
+                                <p class="mt-4 text-ink/70 dark:text-paper/70 text-sm">
+                                    Coloca tu CV en <span class="font-mono text-red">assets/Brandon_Trejo_CV.pdf</span> para verlo aquí.
+                                </p>
+                                <a href="assets/Brandon_Trejo_CV.pdf" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 bg-red text-white text-sm font-mono px-4 py-2 hover:bg-red-soft transition-colors">
+                                    <i class="fa-solid fa-up-right-from-square"></i> Abrir PDF
+                                </a>
+                            </div>
+                        </object>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== CONTACT ============== -->
+    <section id="contact" class="px-5 sm:px-8 py-24 sm:py-32 bg-red text-white">
+        <p class="reveal font-mono text-xs uppercase tracking-[0.25em] text-white/70">(06) — Contacto</p>
+        <a href="mailto:brandont81470@gmail.com" class="reveal block font-display font-extrabold leading-[0.9] tracking-tight text-[clamp(2.25rem,7vw,5.5rem)] mt-6 hover:opacity-80 transition-opacity break-words">
+            HABLEMOS
+        </a>
+        <div class="reveal mt-10 grid sm:grid-cols-2 gap-8 border-t border-white/30 pt-10">
+            <div>
+                <p class="font-mono text-xs uppercase tracking-widest text-white/60">Email</p>
+                <a href="mailto:brandont81470@gmail.com" class="block mt-2 text-base sm:text-lg hover:underline break-all">brandont81470@gmail.com</a>
+                <p class="font-mono text-xs uppercase tracking-widest text-white/60 mt-6">WhatsApp</p>
+                <a href="https://wa.me/525578482150" target="_blank" rel="noopener" class="block mt-2 text-base sm:text-lg hover:underline">+52 55 7848 2150</a>
+            </div>
+            <div class="sm:text-right">
+                <p class="font-mono text-xs uppercase tracking-widest text-white/60">Redes</p>
+                <div class="mt-3 flex sm:justify-end gap-5 text-3xl">
+                    <a href="https://github.com/Brandonttt" target="_blank" rel="noopener" aria-label="GitHub" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/trejo-hern%C3%A1ndez-brandon-a53aba316/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://wa.me/525578482150" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                <p class="font-mono text-xs uppercase tracking-widest text-white/60 mt-10">Ubicación</p>
+                <p class="mt-2 text-base sm:text-lg">Naucalpan de Juárez, México</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="px-5 sm:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-ink/50 dark:text-paper/50">
+        <p>© 2026 Brandon Trejo Hernández</p>
+        <p>Built with <span class="text-red">Tailwind</span> + <span class="text-red">JS</span></p>
+        <a href="#top" class="hover:text-red transition-colors">Volver arriba ↑</a>
+    </footer>
+
+    <!-- Floating preview for project rows -->
+    <div id="preview">
+        <div class="border-2 border-red bg-ink text-paper p-6 shadow-2xl">
+            <i id="preview-icon" class="fa-solid fa-stethoscope text-4xl text-red"></i>
+            <p id="preview-stack" class="mt-4 font-mono text-xs text-paper/80 leading-relaxed"></p>
+            <p class="mt-3 font-mono text-[10px] uppercase tracking-widest text-paper/50">Ver repositorio →</p>
+        </div>
+    </div>
+
+    <!-- ============== JS ============== -->
+    <script>
+        // Theme toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Fullscreen menu
+        const overlay = document.getElementById('overlay');
+        document.getElementById('menu-open').addEventListener('click', () => overlay.classList.add('open'));
+        document.getElementById('menu-close').addEventListener('click', () => overlay.classList.remove('open'));
+        document.querySelectorAll('.menu-link').forEach((l) =>
+            l.addEventListener('click', () => overlay.classList.remove('open'))
+        );
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('open'); });
+
+        // Scroll progress bar
+        const progress = document.getElementById('progress');
+        const onScroll = () => {
+            const h = document.documentElement;
+            const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+            progress.style.transform = `scaleX(${scrolled})`;
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Reveal on scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+        // Floating preview that follows the cursor over project rows
+        const preview = document.getElementById('preview');
+        const previewIcon = document.getElementById('preview-icon');
+        const previewStack = document.getElementById('preview-stack');
+        const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+        if (isFinePointer) {
+            document.querySelectorAll('.work-row').forEach((row) => {
+                row.addEventListener('mouseenter', () => {
+                    previewIcon.className = 'fa-solid ' + row.dataset.icon + ' text-4xl text-red';
+                    previewStack.textContent = row.dataset.stack;
+                    preview.classList.add('show');
+                });
+                row.addEventListener('mouseleave', () => preview.classList.remove('show'));
+                row.addEventListener('mousemove', (e) => {
+                    preview.style.left = e.clientX + 'px';
+                    preview.style.top = e.clientY + 'px';
+                });
+            });
+        }
+
+        // Contact handled via mailto links directly.
+    </script>
+</body>
+</html>

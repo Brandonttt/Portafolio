@@ -1,0 +1,14 @@
+CV de Brandon
+=============
+
+Para que el CV aparezca en la sección "Mi Currículum" de la página:
+
+1. Exporta tu CV desde Overleaf como PDF.
+2. Renómbralo exactamente como:  Brandon_Trejo_CV.pdf
+3. Colócalo en esta carpeta (assets/).
+
+La página ya lo mostrará en el visor y los botones de
+"Descargar CV" / "Abrir en pestaña nueva" funcionarán automáticamente.
+
+Mientras no exista el archivo, el visor muestra un aviso amigable
+en lugar de un error.
