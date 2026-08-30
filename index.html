@@ -67,7 +67,7 @@
             .text-outline { -webkit-text-stroke-width: 3px; }
         }
 
-        /* Dotted grid + soft red glow over the hero (background gradient shows through) */
+        /* Dotted grid + soft red glow over the hero */
         .grid-bg {
             background-image:
                 radial-gradient(rgba(0,0,0,0.10) 1px, transparent 1px),
@@ -156,15 +156,17 @@
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
         </div>
-        <nav class="flex-1 flex flex-col justify-center px-6 sm:px-12 gap-2 sm:gap-3">
-            <a href="#top"        class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">01</span>Inicio</a>
-            <a href="#about"      class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">02</span>Sobre mí</a>
-            <a href="#work"       class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">03</span>Trayectoria</a>
-            <a href="#projects"   class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">04</span>Proyectos</a>
-            <a href="#cv"         class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">05</span>Currículum</a>
-            <a href="#contact"    class="overlay-link menu-link font-display text-5xl sm:text-7xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">06</span>Contacto</a>
+        <nav class="flex-1 flex flex-col justify-center px-6 sm:px-12 gap-1 sm:gap-2">
+            <a href="#top"        class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">01</span>Inicio</a>
+            <a href="#about"      class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">02</span>Sobre mí</a>
+            <a href="#work"       class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">03</span>Trayectoria</a>
+            <a href="#hobbies"    class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">04</span>Pasatiempos</a>
+            <a href="#crypto"     class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">05</span>Criptografía</a>
+            <a href="#projects"   class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">06</span>Proyectos</a>
+            <a href="#cv"         class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">07</span>Descargas / CV</a>
+            <a href="#contact"    class="overlay-link menu-link font-display text-4xl sm:text-6xl font-extrabold"><span class="font-mono text-red text-base align-super mr-3">08</span>Contacto</a>
         </nav>
-        <div class="px-6 sm:px-12 py-8 flex flex-wrap gap-6 font-mono text-xs uppercase tracking-widest text-paper/60">
+        <div class="px-6 sm:px-12 py-6 flex flex-wrap gap-6 font-mono text-xs uppercase tracking-widest text-paper/60">
             <a href="https://github.com/Brandonttt" target="_blank" rel="noopener" class="hover:text-red transition-colors">GitHub</a>
             <a href="https://www.linkedin.com/in/trejo-hern%C3%A1ndez-brandon-a53aba316/" target="_blank" rel="noopener" class="hover:text-red transition-colors">LinkedIn</a>
             <a href="https://wa.me/525578482150" target="_blank" rel="noopener" class="hover:text-red transition-colors">WhatsApp</a>
@@ -175,7 +177,6 @@
     <!-- ============== HERO ============== -->
     <section id="top" class="grid-bg min-h-screen flex flex-col justify-center pt-24 pb-16 relative">
         <div class="px-5 sm:px-8 w-full">
-            <!-- meta row -->
             <div class="flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] sm:text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-paper/60 border-b border-ink/15 dark:border-paper/15 pb-5">
                 <span class="inline-flex items-center gap-2">
                     <span class="relative flex h-2 w-2">
@@ -188,7 +189,6 @@
                 <span>ESCOM — IPN</span>
             </div>
 
-            <!-- giant name -->
             <div class="py-6 sm:py-10">
                 <h1 class="font-display font-extrabold leading-[0.9] tracking-tight text-[clamp(1.9rem,9vw,8rem)] whitespace-nowrap">
                     <span class="block">BRANDON</span>
@@ -196,7 +196,6 @@
                 </h1>
             </div>
 
-            <!-- tagline + cta -->
             <div class="grid lg:grid-cols-12 gap-6 items-end border-t border-ink/15 dark:border-paper/15 pt-6 pb-10">
                 <p class="lg:col-span-7 text-lg sm:text-xl text-ink/70 dark:text-paper/70 max-w-2xl leading-relaxed">
                     Desarrollador Web <span class="text-red font-medium">Frontend</span> y estudiante de Ingeniería
@@ -209,34 +208,33 @@
                         <i class="fa-solid fa-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
                     </a>
                     <a href="#cv" class="inline-flex items-center gap-3 border border-ink/30 dark:border-paper/30 px-6 py-4 font-mono text-xs uppercase tracking-widest hover:border-red hover:text-red transition-colors">
-                        Ver CV
+                        Descargas & CV
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============== ABOUT ============== -->
+    <!-- ============== ABOUT (CON FOTO) ============== -->
     <section id="about" class="px-5 sm:px-8 py-24 sm:py-32">
         <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-12">
             <span class="font-mono text-red text-sm">(02)</span>
             <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Sobre mí</h2>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div class="lg:col-span-7 reveal">
                 <p class="font-display text-2xl sm:text-4xl font-bold leading-tight">
                     Persona <span class="text-red">organizada</span> y <span class="text-red">responsable</span>,
-                    con compromiso y entusiasmo por resolver problemas.
+                    con compromiso y entusiasmo por resolver problemas de software.
                 </p>
                 <p class="mt-8 text-ink/70 dark:text-paper/70 leading-relaxed max-w-2xl">
-                    Estudio Ingeniería en Sistemas Computacionales en la ESCOM del IPN. Me enfoco en el
-                    desarrollo web frontend: construir interfaces claras, mantenibles y centradas en el usuario.
-                    Siempre estoy dispuesto a aprender cosas nuevas y enfrentar los retos que se presenten.
+                    Estudio Ingeniería en Sistemas Computacionales en la Escuela Superior de Cómputo (ESCOM) del IPN.
+                    Me apasiona el desarrollo web frontend y la arquitectura de software: construir interfaces claras,
+                    mantenibles, con alto rendimiento y óptima experiencia de usuario.
                 </p>
                 <p class="mt-4 text-ink/70 dark:text-paper/70 leading-relaxed max-w-2xl">
-                    Disfruto colaborar en equipo, analizar bien cada tarea antes de actuar y aportar soluciones
-                    que mejoren la experiencia de las personas.
+                    Disfruto colaborar en equipos multidisciplinarios, analizar detalladamente los requerimientos antes de escribir código y aportar soluciones técnicas sólidas en cada proyecto.
                 </p>
 
                 <div class="mt-10 flex flex-wrap gap-2">
@@ -245,60 +243,58 @@
                     <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Adaptabilidad</span>
                     <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Proactividad</span>
                     <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Perseverancia</span>
-                    <span class="border border-ink/25 dark:border-paper/25 px-3 py-1.5 font-mono text-xs">Paciencia</span>
                 </div>
             </div>
 
             <div class="lg:col-span-5 reveal">
+                <!-- Foto de perfil con marco estilizado -->
+                <div class="relative border border-ink/20 dark:border-paper/20 p-3 bg-white/40 dark:bg-white/[0.03] mb-8">
+                    <div class="aspect-square bg-ink/10 dark:bg-paper/10 overflow-hidden relative">
+                        <img src="assets/brandon.jpg" alt="Foto de Brandon Trejo" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop'" />
+                        <span class="absolute bottom-2 right-2 bg-ink text-paper dark:bg-paper dark:text-ink font-mono text-[10px] px-2 py-0.5">Brandon Trejo</span>
+                    </div>
+                </div>
+
                 <ul class="divide-y divide-ink/15 dark:divide-paper/15 border-y border-ink/15 dark:border-paper/15">
-                    <li class="flex items-center justify-between py-4">
+                    <li class="flex items-center justify-between py-3">
                         <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Rol</span>
-                        <span class="font-display font-bold text-lg">Frontend Dev</span>
+                        <span class="font-display font-bold text-base">Frontend Dev</span>
                     </li>
-                    <li class="flex items-center justify-between py-4">
+                    <li class="flex items-center justify-between py-3">
                         <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Escuela</span>
-                        <span class="font-display font-bold text-lg">ESCOM — IPN</span>
+                        <span class="font-display font-bold text-base">ESCOM — IPN</span>
                     </li>
-                    <li class="flex items-center justify-between py-4">
+                    <li class="flex items-center justify-between py-3">
                         <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Ubicación</span>
-                        <span class="font-display font-bold text-lg">Naucalpan, MX</span>
-                    </li>
-                    <li class="flex items-center justify-between py-4">
-                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Idiomas</span>
-                        <span class="font-display font-bold text-lg">ES · EN</span>
+                        <span class="font-display font-bold text-base">Naucalpan, MX</span>
                     </li>
                 </ul>
 
-                <!-- skills categories -->
-                <div class="mt-8 space-y-5">
+                <div class="mt-6 space-y-4">
                     <div>
-                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-2">/ Lenguajes</p>
-                        <p class="text-ink/80 dark:text-paper/80">Java · Python · TypeScript · JavaScript</p>
+                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-1">/ Lenguajes & Web</p>
+                        <p class="text-sm text-ink/80 dark:text-paper/80">Java · Python · TypeScript · JavaScript · HTML5 · CSS3/SCSS · Angular</p>
                     </div>
                     <div>
-                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-2">/ Web</p>
-                        <p class="text-ink/80 dark:text-paper/80">HTML · CSS · SCSS · Angular</p>
-                    </div>
-                    <div>
-                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-2">/ Herramientas</p>
-                        <p class="text-ink/80 dark:text-paper/80">Git · Docker · Postman · Charles Proxy · Bitbucket · Jira · Confluence · SCRUM</p>
+                        <p class="font-mono text-xs uppercase tracking-widest text-red mb-1">/ Herramientas</p>
+                        <p class="text-sm text-ink/80 dark:text-paper/80">Git · Docker · Postman · Charles Proxy · Bitbucket · Jira · Linux</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============== WORK / TIMELINE ============== -->
+    <!-- ============== TRAYECTORIA / ACADÉMICA Y LABORAL ============== -->
     <section id="work" class="px-5 sm:px-8 py-24 sm:py-32 bg-ink text-paper dark:bg-paper dark:text-ink transition-colors duration-300">
         <div class="reveal flex items-baseline gap-4 border-b border-paper/20 dark:border-ink/20 pb-5 mb-12">
             <span class="font-mono text-red text-sm">(03)</span>
-            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Trayectoria</h2>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Formación y Trayectoria</h2>
         </div>
 
-        <!-- Experience -->
+        <!-- Experiencia Laboral -->
         <div class="reveal grid lg:grid-cols-12 gap-6 py-8 border-b border-paper/15 dark:border-ink/15 group">
             <div class="lg:col-span-3">
-                <p class="font-mono text-xs uppercase tracking-widest text-red">Experiencia</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-red">Experiencia Laboral</p>
                 <p class="mt-2 font-mono text-sm text-paper/60 dark:text-ink/60">Sep 2025 — Mar 2026</p>
             </div>
             <div class="lg:col-span-9">
@@ -307,37 +303,183 @@
                     <span class="font-mono text-xs border border-red text-red px-2 py-1">Becario TI Frontend</span>
                 </div>
                 <p class="mt-4 text-paper/70 dark:text-ink/70 leading-relaxed max-w-3xl">
-                    Solucioné bugs e implementé características en el portal y en distintas iniciativas, trabajando con
-                    <span class="text-paper dark:text-ink font-medium">trazas, Charles Proxy, VS Code, Docker y WSL</span>.
-                    Hacía un análisis previo de los tickets para tener mejor contexto, mejorando la experiencia del
-                    usuario y optimizando procesos internos. En equipo daba seguimiento con
-                    <span class="text-paper dark:text-ink font-medium">Jira</span> y colaboraba con
-                    <span class="text-paper dark:text-ink font-medium">Bitbucket y Confluence</span>.
+                    Resolución de incidencias e implementación de requerimientos en portal web mediante <span class="text-paper dark:text-ink font-medium">Angular, TypeScript, Docker y WSL</span>. Monitoreo de peticiones y depuración con Charles Proxy y gestión de flujo de trabajo ágil con Jira y Bitbucket.
                 </p>
             </div>
         </div>
 
-        <!-- Education 1 -->
+        <!-- Educación Superior -->
         <div class="reveal grid lg:grid-cols-12 gap-6 py-8 border-b border-paper/15 dark:border-ink/15">
             <div class="lg:col-span-3">
-                <p class="font-mono text-xs uppercase tracking-widest text-red">Educación</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-red">Educación Superior</p>
                 <p class="mt-2 font-mono text-sm text-paper/60 dark:text-ink/60">Ago 2022 — Presente</p>
             </div>
             <div class="lg:col-span-9">
                 <h3 class="font-display text-2xl sm:text-3xl font-bold">IPN — ESCOM</h3>
-                <p class="mt-3 text-paper/70 dark:text-ink/70">Ingeniería en Sistemas Computacionales</p>
+                <p class="mt-2 text-paper/90 dark:text-ink/90 font-medium">Ingeniería en Sistemas Computacionales</p>
+                <p class="mt-2 text-paper/70 dark:text-ink/70 text-sm max-w-2xl">Enfoque en desarrollo de software, algoritmos avanzados, redes, bases de datos, sistemas distribuidos y seguridad computacional.</p>
             </div>
         </div>
 
-        <!-- Education 2 -->
-        <div class="reveal grid lg:grid-cols-12 gap-6 py-8">
+        <!-- Educación Media Superior -->
+        <div class="reveal grid lg:grid-cols-12 gap-6 py-8 border-b border-paper/15 dark:border-ink/15">
             <div class="lg:col-span-3">
-                <p class="font-mono text-xs uppercase tracking-widest text-red">Educación</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-red">Educación Media Superior</p>
                 <p class="mt-2 font-mono text-sm text-paper/60 dark:text-ink/60">Ago 2019 — Jul 2022</p>
             </div>
             <div class="lg:col-span-9">
                 <h3 class="font-display text-2xl sm:text-3xl font-bold">IPN — CECyT 2 "Miguel Bernard"</h3>
-                <p class="mt-3 text-paper/70 dark:text-ink/70">Técnico en Dibujo Asistido por Computadora</p>
+                <p class="mt-2 text-paper/90 dark:text-ink/90 font-medium">Técnico en Dibujo Asistido por Computadora</p>
+                <p class="mt-2 text-paper/70 dark:text-ink/70 text-sm max-w-2xl">Formación técnica en modelado 2D/3D, precisión geométrica, diseño técnico y fundamentos lógicos computacionales.</p>
+            </div>
+        </div>
+
+        <!-- Educación Básica / Secundaria -->
+        <div class="reveal grid lg:grid-cols-12 gap-6 py-8">
+            <div class="lg:col-span-3">
+                <p class="font-mono text-xs uppercase tracking-widest text-red">Educación Básica</p>
+                <p class="mt-2 font-mono text-sm text-paper/60 dark:text-ink/60">Ago 2016 — Jul 2019</p>
+            </div>
+            <div class="lg:col-span-9">
+                <h3 class="font-display text-2xl sm:text-3xl font-bold">Escuela Secundaria Federal N° 17 "Benemérito de las Américas"</h3>
+                <p class="mt-2 text-paper/90 dark:text-ink/90 font-medium">Certificado de Educación Secundaria</p>
+                <p class="mt-2 text-paper/70 dark:text-ink/70 text-sm max-w-2xl">Formación básica.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== PASATIEMPOS (3 HOBBIES) ============== -->
+    <section id="hobbies" class="px-5 sm:px-8 py-24 sm:py-32 border-b border-ink/15 dark:border-paper/15">
+        <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-12">
+            <span class="font-mono text-red text-sm">(04)</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Pasatiempos</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Hobby 1 -->
+            <div class="reveal border border-ink/20 dark:border-paper/20 p-5 bg-white/40 dark:bg-white/[0.02] flex flex-col justify-between group">
+                <div>
+                    <div class="aspect-video w-full overflow-hidden mb-5 bg-ink/10 relative">
+                        <img src="assets/p2.jpeg" alt="Entrenamiento de fuerza y gimnasio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span class="absolute top-3 left-3 bg-red text-white font-mono text-xs px-2 py-0.5">01</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3">Entrenamiento & Gym</h3>
+                    <p class="text-sm text-ink/70 dark:text-paper/70 leading-relaxed">
+                        Entrenar fuerza de forma constante me ayuda a mantener disciplina, liberar estrés y fomentar la superación personal que aplico día a día al resolver retos complejos.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-ink/10 dark:border-paper/10 font-mono text-xs text-red">
+                </div>
+            </div>
+
+            <!-- Hobby 2 -->
+            <div class="reveal border border-ink/20 dark:border-paper/20 p-5 bg-white/40 dark:bg-white/[0.02] flex flex-col justify-between group">
+                <div>
+                    <div class="aspect-video w-full overflow-hidden mb-5 bg-ink/10 relative">
+                        <img src=assets/comida1.jpeg alt="Cocina" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span class="absolute top-3 left-3 bg-red text-white font-mono text-xs px-2 py-0.5">02</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3">Cocina</h3>
+                    <p class="text-sm text-ink/70 dark:text-paper/70 leading-relaxed">
+                        Me gusta cocinar y buscar nuevas recetas para probar en especial recetas que son faciles de preparar.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-ink/10 dark:border-paper/10 font-mono text-xs text-red">
+                   
+                </div>
+            </div>
+
+            <!-- Hobby 3 -->
+            <div class="reveal border border-ink/20 dark:border-paper/20 p-5 bg-white/40 dark:bg-white/[0.02] flex flex-col justify-between group">
+                <div>
+                    <div class="aspect-video w-full overflow-hidden mb-5 bg-ink/10 relative">
+                        <img src="assets/p3.jpeg" alt="Música y producción de audio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span class="absolute top-3 left-3 bg-red text-white font-mono text-xs px-2 py-0.5">03</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3">Música & Acústica</h3>
+                    <p class="text-sm text-ink/70 dark:text-paper/70 leading-relaxed">
+                        Me gusta ver películas y escuchar música, en especial géneros como el rock, pop, metal y música electrónica.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-ink/10 dark:border-paper/10 font-mono text-xs text-red">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== CRIPTOGRAFÍA (3 HECHOS CURIOSOS) ============== -->
+    <section id="crypto" class="px-5 sm:px-8 py-24 sm:py-32 bg-ink/5 dark:bg-ink/40 border-b border-ink/15 dark:border-paper/15">
+        <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-12">
+            <span class="font-mono text-red text-sm">(05)</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Criptografía: Datos Curiosos</h2>
+        </div>
+
+        <div class="space-y-16">
+            <!-- Hecho 1: Máquina Enigma y Alan Turing -->
+            <div class="reveal grid lg:grid-cols-12 gap-8 items-center border border-ink/15 dark:border-paper/15 p-6 sm:p-8 bg-paper dark:bg-ink">
+                <div class="lg:col-span-7">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="font-mono text-xs px-2 py-1 bg-red text-white">Dato 01</span>
+                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Criptoanálisis Histórico</span>
+                    </div>
+                    <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4">El fallo clave de la Máquina Enigma</h3>
+                    <p class="text-ink/80 dark:text-paper/80 leading-relaxed text-sm sm:text-base">
+                        Durante la Segunda Guerra Mundial, la máquina nazi <strong>Enigma</strong> generaba combinaciones astronómicas de cifrado. Sin embargo, tenía una debilidad matemática fundamental: <em>ninguna letra podía cifrarse como sí misma</em>.
+                    </p>
+                    <p class="mt-3 text-ink/70 dark:text-paper/70 leading-relaxed text-sm">
+                        Esta limitación geométrica y lógica fue el talón de Aquiles que aprovechó <strong>Alan Turing</strong> y el equipo de Bletchley Park con la máquina electromecánica <em>Bombe</em> para descifrar miles de mensajes militares al día, acortando la guerra en años.
+                    </p>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="aspect-video w-full bg-ink/10 overflow-hidden border border-ink/20 dark:border-paper/20 relative">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop" alt="Código y cifrado histórico" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hecho 2: El algoritmo Argon2id y la resistencia de memoria -->
+            <div class="reveal grid lg:grid-cols-12 gap-8 items-center border border-ink/15 dark:border-paper/15 p-6 sm:p-8 bg-paper dark:bg-ink">
+                <div class="lg:col-span-7 lg:order-2">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="font-mono text-xs px-2 py-1 bg-red text-white">Dato 02</span>
+                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Hashing Moderno</span>
+                    </div>
+                    <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4">Argon2id y las funciones "Memory-Hard"</h3>
+                    <p class="text-ink/80 dark:text-paper/80 leading-relaxed text-sm sm:text-base">
+                        A diferencia de algoritmos antiguos como MD5 o SHA-256 (que son rápidos y por tanto vulnerables al ataque masivo en tarjetas gráficas), <strong>Argon2id</strong> (ganador del <em>Password Hashing Competition</em>) requiere memoria RAM física obligatoria para calcular cada hash.
+                    </p>
+                    <p class="mt-3 text-ink/70 dark:text-paper/70 leading-relaxed text-sm">
+                        Esto neutraliza los ataques de fuerza bruta basados en GPUs y circuitos ASIC paralelos, y combina defensas contra ataques de canal lateral (*side-channel timing attacks*).
+                    </p>
+                </div>
+                <div class="lg:col-span-5 lg:order-1">
+                    <div class="aspect-video w-full bg-ink/10 overflow-hidden border border-ink/20 dark:border-paper/20 relative">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop" alt="Servidores y cómputo de alta seguridad" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hecho 3: Video / Criptografía Cuántica & Asimétrica -->
+            <div class="reveal grid lg:grid-cols-12 gap-8 items-center border border-ink/15 dark:border-paper/15 p-6 sm:p-8 bg-paper dark:bg-ink">
+                <div class="lg:col-span-7">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="font-mono text-xs px-2 py-1 bg-red text-white">Dato 03</span>
+                        <span class="font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">Post-Quantum</span>
+                    </div>
+                    <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4">El reto cuántico a la Criptografía Asimétrica (RSA)</h3>
+                    <p class="text-ink/80 dark:text-paper/80 leading-relaxed text-sm sm:text-base">
+                        Toda la seguridad del comercio electrónico actual reposa en la dificultad de factorizar números primos enormes (RSA) o calcular logaritmos discretos en curvas elípticas.
+                    </p>
+                    <p class="mt-3 text-ink/70 dark:text-paper/70 leading-relaxed text-sm">
+                        Con la llegada del <em>Algoritmo de Shor</em> en computadoras cuánticas, estos esquemas se romperían en tiempo polinomial, obligando a la transición hacia la <strong>Criptografía Post-Cuántica (PQC)</strong> basada en redes euclidianas (Lattice-based cryptography).
+                    </p>
+                </div>
+                <div class="lg:col-span-5">
+                    <!-- Video Embed responsivo -->
+                    <div class="aspect-video w-full border border-ink/20 dark:border-paper/20 overflow-hidden bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/S9JGmA5_unY" title="Explicación de Criptografía de Llave Pública y Cuántica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -345,7 +487,7 @@
     <!-- ============== PROJECTS ============== -->
     <section id="projects" class="px-5 sm:px-8 py-24 sm:py-32">
         <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-4">
-            <span class="font-mono text-red text-sm">(04)</span>
+            <span class="font-mono text-red text-sm">(06)</span>
             <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Proyectos</h2>
         </div>
 
@@ -373,40 +515,41 @@
                     <h3 class="work-title font-display text-3xl sm:text-6xl font-extrabold truncate">Recomendación</h3>
                 </div>
                 <div class="flex items-center gap-6 shrink-0">
-                    <p class="hidden md:block font-mono text-xs text-ink/50 dark:text-paper/50 max-w-[16rem] text-right">Consume API de libros y películas con consumo optimizado y favoritos</p>
+                    <p class="hidden md:block font-mono text-xs text-ink/50 dark:text-paper/50 max-w-[16rem] text-right">Consumo de APIs de libros y películas con caché optimizado</p>
                     <i class="arrow fa-solid fa-arrow-right text-2xl text-red"></i>
                 </div>
             </a>
         </div>
 
         <p class="reveal mt-8 font-mono text-xs text-ink/50 dark:text-paper/50">
-            <i class="fa-brands fa-github text-red"></i> Más en
+            <i class="fa-brands fa-github text-red"></i> Más repositorios en
             <a href="https://github.com/Brandonttt" target="_blank" rel="noopener" class="text-red hover:underline">github.com/Brandonttt</a>
         </p>
     </section>
 
-    <!-- ============== CV ============== -->
+    <!-- ============== CV & LLAVE PÚBLICA (DESCARGAS) ============== -->
     <section id="cv" class="px-5 sm:px-8 py-24 sm:py-32 border-t border-ink/15 dark:border-paper/15">
         <div class="reveal flex items-baseline gap-4 border-b border-ink/15 dark:border-paper/15 pb-5 mb-12">
-            <span class="font-mono text-red text-sm">(05)</span>
-            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Currículum</h2>
+            <span class="font-mono text-red text-sm">(07)</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold">Descargas & CV</h2>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div class="lg:col-span-6 reveal">
                 <p class="font-display text-3xl sm:text-5xl font-extrabold leading-tight">
-                    Todo mi <span class="text-red">recorrido</span> en una página.
+                    Documentación y <span class="text-red">claves</span> de verificación.
                 </p>
                 <p class="mt-6 text-ink/70 dark:text-paper/70 leading-relaxed max-w-xl">
-                    Formación, experiencia profesional, proyectos y habilidades técnicas. Consúltalo aquí mismo
-                    o descárgalo en PDF.
+                    Descarga mi currículum profesional actualizado o mi llave pública criptográfica para cifrar mensajes y verificar autenticidad de firmas digitales.
                 </p>
-                <div class="mt-10 flex flex-wrap gap-3">
-                    <a href="assets/Brandon_Trejo_CV.pdf" download class="group inline-flex items-center gap-3 bg-red text-white px-7 py-4 font-mono text-xs uppercase tracking-widest hover:bg-red-soft transition-colors">
-                        Descargar CV <i class="fa-solid fa-download group-hover:translate-y-0.5 transition-transform"></i>
+
+                <!-- Botones requeridos: Descargar CV y Descargar Llave Pública -->
+                <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+                    <a href="assets/Brandon_Trejo_CV.pdf" download class="group inline-flex items-center justify-center gap-3 bg-red text-white px-6 py-4 font-mono text-xs uppercase tracking-widest hover:bg-red-soft transition-colors">
+                        Descargar CV <i class="fa-solid fa-file-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
                     </a>
-                    <a href="assets/Brandon_Trejo_CV.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-3 border border-ink/30 dark:border-paper/30 px-7 py-4 font-mono text-xs uppercase tracking-widest hover:border-red hover:text-red transition-colors">
-                        Abrir en pestaña <i class="fa-solid fa-up-right-from-square"></i>
+                    <a href="assets/brandon_public_key.asc" download class="group inline-flex items-center justify-center gap-3 bg-ink text-paper dark:bg-paper dark:text-ink px-6 py-4 font-mono text-xs uppercase tracking-widest hover:bg-red hover:text-white dark:hover:bg-red dark:hover:text-white transition-colors">
+                        Descargar Llave Pública <i class="fa-solid fa-key group-hover:scale-110 transition-transform"></i>
                     </a>
                 </div>
             </div>
@@ -419,12 +562,12 @@
                         <span class="w-2.5 h-2.5 rounded-full bg-ink/30 dark:bg-paper/30"></span>
                         <span class="ml-2 font-mono text-[11px] text-ink/50 dark:text-paper/50">Brandon_Trejo_CV.pdf</span>
                     </div>
-                    <div class="aspect-[1/1.3] bg-paper dark:bg-ink/60 overflow-hidden">
+                    <div class="aspect-[1/1.2] bg-paper dark:bg-ink/60 overflow-hidden">
                         <object data="assets/Brandon_Trejo_CV.pdf" type="application/pdf" class="w-full h-full">
                             <div class="w-full h-full flex flex-col items-center justify-center text-center p-8">
                                 <i class="fa-solid fa-file-pdf text-5xl text-red"></i>
                                 <p class="mt-4 text-ink/70 dark:text-paper/70 text-sm">
-                                    Coloca tu CV en <span class="font-mono text-red">assets/Brandon_Trejo_CV.pdf</span> para verlo aquí.
+                                    Coloca tu CV en <span class="font-mono text-red">assets/Brandon_Trejo_CV.pdf</span> para previsualizarlo.
                                 </p>
                                 <a href="assets/Brandon_Trejo_CV.pdf" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 bg-red text-white text-sm font-mono px-4 py-2 hover:bg-red-soft transition-colors">
                                     <i class="fa-solid fa-up-right-from-square"></i> Abrir PDF
@@ -439,26 +582,26 @@
 
     <!-- ============== CONTACT ============== -->
     <section id="contact" class="px-5 sm:px-8 py-24 sm:py-32 bg-red text-white">
-        <p class="reveal font-mono text-xs uppercase tracking-[0.25em] text-white/70">(06) — Contacto</p>
+        <p class="reveal font-mono text-xs uppercase tracking-[0.25em] text-white/70">(08) — Contacto</p>
         <a href="mailto:brandont81470@gmail.com" class="reveal block font-display font-extrabold leading-[0.9] tracking-tight text-[clamp(2.25rem,7vw,5.5rem)] mt-6 hover:opacity-80 transition-opacity break-words">
             HABLEMOS
         </a>
         <div class="reveal mt-10 grid sm:grid-cols-2 gap-8 border-t border-white/30 pt-10">
             <div>
-                <p class="font-mono text-xs uppercase tracking-widest text-white/60">Email</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-white/60">Email Principal</p>
                 <a href="mailto:brandont81470@gmail.com" class="block mt-2 text-base sm:text-lg hover:underline break-all">brandont81470@gmail.com</a>
                 <p class="font-mono text-xs uppercase tracking-widest text-white/60 mt-6">WhatsApp</p>
                 <a href="https://wa.me/525578482150" target="_blank" rel="noopener" class="block mt-2 text-base sm:text-lg hover:underline">+52 55 7848 2150</a>
             </div>
             <div class="sm:text-right">
-                <p class="font-mono text-xs uppercase tracking-widest text-white/60">Redes</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-white/60">Redes Sociales & Perfiles</p>
                 <div class="mt-3 flex sm:justify-end gap-5 text-3xl">
                     <a href="https://github.com/Brandonttt" target="_blank" rel="noopener" aria-label="GitHub" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/trejo-hern%C3%A1ndez-brandon-a53aba316/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://wa.me/525578482150" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
-                <p class="font-mono text-xs uppercase tracking-widest text-white/60 mt-10">Ubicación</p>
-                <p class="mt-2 text-base sm:text-lg">Naucalpan de Juárez, México</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-white/60 mt-8">Ubicación</p>
+                <p class="mt-2 text-base sm:text-lg">Naucalpan de Juárez, Estado de México</p>
             </div>
         </div>
     </section>
@@ -466,7 +609,7 @@
     <!-- ============== FOOTER ============== -->
     <footer class="px-5 sm:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-ink/50 dark:text-paper/50">
         <p>© 2026 Brandon Trejo Hernández</p>
-        <p>Built with <span class="text-red">Tailwind</span> + <span class="text-red">JS</span></p>
+        <p>Built with <span class="text-red">Tailwind CSS</span> + <span class="text-red">Vanilla JS</span></p>
         <a href="#top" class="hover:text-red transition-colors">Volver arriba ↑</a>
     </footer>
 
@@ -534,8 +677,6 @@
                 });
             });
         }
-
-        // Contact handled via mailto links directly.
     </script>
 </body>
 </html>
